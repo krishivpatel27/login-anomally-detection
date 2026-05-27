@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anomaly Detector Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <main class="glass-container">
+        <header>
+            <h1>Login Anomaly Detector</h1>
+            <p>Behavior-Based Neural Analysis</p>
+        </header>
+
+        <section class="dashboard">
+            <form id="loginForm" class="control-panel">
+                <h2>Simulation Parameters</h2>
+                
+                <div class="input-group">
+                    <label for="user_id">User ID</label>
+                    <select id="user_id" name="user_id">
+                        <!-- Options populated via JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="country">Location</label>
+                    <select id="country" name="country">
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="Germany">Germany</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="device_type">Device Type</label>
+                    <select id="device_type" name="device_type">
+                        <option value="Windows">Windows</option>
+                        <option value="Linux">Linux</option>
+                        <option value="MacOS">MacOS</option>
+                        <option value="Android">Android</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="browser">Browser</label>
+                    <select id="browser" name="browser">
+                        <option value="Chrome">Chrome</option>
+                        <option value="Firefox">Firefox</option>
+                        <option value="Safari">Safari</option>
+                        <option value="Edge">Edge</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="failed_attempts">Failed Attempts: <span id="failed_val">1</span></label>
+                    <input type="range" id="failed_attempts" name="failed_attempts" min="0" max="10" value="1">
+                </div>
+
+                <div class="input-group">
+                    <label for="hour">Login Hour: <span id="hour_val">12</span>:00</label>
+                    <input type="range" id="hour" name="hour" min="0" max="23" value="12">
+                </div>
+                
+                <div class="input-group">
+                    <label for="is_weekend">Weekend Login</label>
+                    <select id="is_weekend" name="is_weekend">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="analyze-btn">Initialize Scan</button>
+            </form>
+
+            <div class="results-panel">
+                <h2>Analysis Results</h2>
+                <div id="loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Analyzing behavioral patterns...</p>
+                </div>
+                <div id="results" class="hidden">
+                    <div id="statusAlert" class="alert">
+                        <span id="statusIcon"></span>
+                        <span id="statusText"></span>
+                    </div>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <h3 id="riskScoreValue">--</h3>
+                            <p>Risk Score</p>
+                        </div>
+                        <div class="metric-card">
+                            <h3 id="riskLevelValue">--</h3>
+                            <p>Risk Level</p>
+                        </div>
+                        <div class="metric-card">
+                            <h3 id="behaviorScoreValue">--</h3>
+                            <p>Behavior Score</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="errorMsg" class="hidden error"></div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
